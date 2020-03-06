@@ -2,22 +2,19 @@
 <Module id="${project.name}" class="fr.softeam.cameldesigner.impl.CamelDesignerModule" binaryversion="4.0.0" version="${project.version}" schema-level="2" uid="dc1688c2-8bd2-4585-a786-b1b5877996d7" author="Softeam" image="" url="">
     <ClassPath>
         <PathEntry path="lib/${project.artifactId}-${project.version}.jar"/>
+        <PathEntry path="lib/java-2.0.17.jar"/>
         <PathEntry path="lib/com.google.guava-21.0.0-SNAPSHOT.jar"/>
+        <PathEntry path="lib/runtime-3.2.0.jar"/>
+        <PathEntry path="lib/inject-1.0.0.jar"/>
         <PathEntry path="lib/inject-3.0.0.jar"/>
         <PathEntry path="lib/multibindings-3.0.0.jar"/>
-        <PathEntry path="lib/inject-1.0.0.jar"/>
-        <PathEntry path="lib/java-2.0.17.jar"/>
-        <PathEntry path="lib/runtime-3.2.0.jar"/>
         <PathEntry path="lib/cli-1.2.0.jar"/>
+        <PathEntry path="lib/log4j-1.2.15.jar"/>
         <PathEntry path="lib/contenttype-3.6.0.jar"/>
         <PathEntry path="lib/jobs-3.9.3.jar"/>
         <PathEntry path="lib/runtime-3.13.0.jar"/>
         <PathEntry path="lib/cdo-4.6.0.jar"/>
-        <PathEntry path="lib/org.eclipse.emf.mwe.core-1.3.21-SNAPSHOT.jar"/>
-        <PathEntry path="lib/org.eclipse.emf.mwe.utils-1.3.21-SNAPSHOT.jar"/>
-        <PathEntry path="lib/org.eclipse.emf.mwe2.runtime-2.9.1-SNAPSHOT.jar"/>
-        <PathEntry path="lib/CamelDSLExporter-3.0.0-SNAPSHOT.jar"/>
-        <PathEntry path="lib/log4j-1.2.15.jar"/>
+        <PathEntry path="lib/common-4.6.0.jar"/>
         <PathEntry path="lib/expressions-4.3.200.jar"/>
         <PathEntry path="lib/net4j-4.1.500.jar"/>
         <PathEntry path="lib/security-4.3.200.jar"/>
@@ -34,25 +31,25 @@
         <PathEntry path="lib/preferences-3.7.0.jar"/>
         <PathEntry path="lib/registry-3.7.0.jar"/>
         <PathEntry path="lib/annotation-2.1.150.jar"/>
-        <PathEntry path="lib/net4j-4.6.0.jar"/>
-        <PathEntry path="lib/tcp-4.1.500.jar"/>
-        <PathEntry path="lib/util-3.7.0.jar"/>
-        <PathEntry path="lib/ocl-3.6.200.jar"/>
-        <PathEntry path="lib/common-1.4.200.jar"/>
-        <PathEntry path="lib/ecore-3.6.200.jar"/>
-        <PathEntry path="lib/pivot-1.3.0.jar"/>
-        <PathEntry path="lib/uml-5.2.200.jar"/>
-        <PathEntry path="lib/base-1.3.0.jar"/>
-        <PathEntry path="lib/completeocl-1.3.0.jar"/>
-        <PathEntry path="lib/essentialocl-1.3.0.jar"/>
-        <PathEntry path="lib/oclinecore-1.3.0.jar"/>
-        <PathEntry path="lib/oclstdlib-1.3.0.jar"/>
-        <PathEntry path="lib/osgi-3.12.100.jar"/>
-        <PathEntry path="lib/state-1.1.0.jar"/>
-        <PathEntry path="lib/xtext-2.12.0.jar"/>
-        <PathEntry path="lib/util-2.12.0.jar"/>
-        <PathEntry path="lib/api-1.7.2.jar"/>
         <PathEntry path="lib/CamelDSLExporter-3.0.0-SNAPSHOT.jar"/>
+        <PathEntry path="lib/api-1.7.2.jar"/>
+        <PathEntry path="lib/util-2.12.0.jar"/>
+        <PathEntry path="lib/xtext-2.12.0.jar"/>
+        <PathEntry path="lib/state-1.1.0.jar"/>
+        <PathEntry path="lib/osgi-3.12.100.jar"/>
+        <PathEntry path="lib/oclstdlib-1.3.0.jar"/>
+        <PathEntry path="lib/oclinecore-1.3.0.jar"/>
+        <PathEntry path="lib/essentialocl-1.3.0.jar"/>
+        <PathEntry path="lib/completeocl-1.3.0.jar"/>
+        <PathEntry path="lib/base-1.3.0.jar"/>
+        <PathEntry path="lib/uml-5.2.200.jar"/>
+        <PathEntry path="lib/pivot-1.3.0.jar"/>
+        <PathEntry path="lib/ecore-3.6.200.jar"/>
+        <PathEntry path="lib/common-1.4.200.jar"/>
+        <PathEntry path="lib/ocl-3.6.200.jar"/>
+        <PathEntry path="lib/util-3.7.0.jar"/>
+        <PathEntry path="lib/tcp-4.1.500.jar"/>
+        <PathEntry path="lib/net4j-4.6.0.jar"/>
     </ClassPath>
     <Profiles>
         <Profile uid="28a1b85d-93b2-47f7-845a-f4883b71ded5" id="CamelCore">
@@ -1250,25 +1247,25 @@
             </Command>
             <Command id="ImportCamelModel" label="%command.ImportCamelModel.label" tooltip="%command.ImportCamelModel.tooltip" image="res/icon/gui/importCamel_24.png" modify-model="true">
                 <Scope metaclass="Standard.Package" stereotype=""/>
-                <Handler class="fr.softeam.cameldesigner.handlers.commands.ImportCamelModelCommand">
+                <Handler class="fr.softeam.cameldesigner.handlers.commands.importcommands.ImportCamelModelCommand">
                     <HParameter name="name" value=""/>
                 </Handler>
             </Command>
             <Command id="ExportCamelModel" label="%command.ExportCamelModel.label" tooltip="%command.ExportCamelModel.tooltip" image="res/icon/gui/exportCamel_24.png" modify-model="false">
                 <Scope metaclass="Standard.Class" stereotype="CamelDesigner#CamelModel"/>
-                <Handler class="fr.softeam.cameldesigner.handlers.commands.ExportCamelModelCommand">
+                <Handler class="fr.softeam.cameldesigner.handlers.commands.exportcommands.ExportCamelModelCommand">
                     <HParameter name="name" value=""/>
                 </Handler>
             </Command>
             <Command id="ImportCamelXMIModel" label="%command.ImportCamelXMIModel.label" tooltip="%command.ImportCamelXMIModel.tooltip" image="res/icon/gui/importXMI_24.png" modify-model="true">
                 <Scope metaclass="Standard.Package" stereotype=""/>
-                <Handler class="fr.softeam.cameldesigner.handlers.commands.ImportCamelXMIModelCommand">
+                <Handler class="fr.softeam.cameldesigner.handlers.commands.importcommands.ImportCamelXMIModelCommand">
                     <HParameter name="name" value=""/>
                 </Handler>
             </Command>
             <Command id="ExportCamelXMIModel" label="%command.ExportCamelXMIModel.label" tooltip="%command.ExportCamelXMIModel.tooltip" image="res/icon/gui/exportXMI_24.png" modify-model="false">
                 <Scope metaclass="Standard.Class" stereotype="CamelDesigner#CamelModel"/>
-                <Handler class="fr.softeam.cameldesigner.handlers.commands.ExportCamelXMIModelCommand">
+                <Handler class="fr.softeam.cameldesigner.handlers.commands.exportcommands.ExportCamelXMIModelCommand">
                     <HParameter name="name" value=""/>
                 </Handler>
             </Command>
@@ -1708,6 +1705,9 @@
                 </Handler>
             </DiagramType>
         </Diagrams>
+        <Views>
+            <PropertyPage id="Camel" class="fr.softeam.cameldesigner.handlers.propertypage.CamelPropertyPageHandler" label="%propertypage.Camel.label" image="res/icon/gui/camel_only_24.png"/>
+        </Views>
     </Gui>
     <Resources>
         <Styles>

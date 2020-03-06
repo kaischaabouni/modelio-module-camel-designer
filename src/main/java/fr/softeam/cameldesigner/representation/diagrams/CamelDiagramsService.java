@@ -1,10 +1,9 @@
-package fr.softeam.cameldesigner.representation.diagrams.impl;
+package fr.softeam.cameldesigner.representation.diagrams;
 
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import fr.softeam.cameldesigner.api.ICamelDesignerPeerModule;
 import fr.softeam.cameldesigner.impl.CamelDesignerModule;
-import fr.softeam.cameldesigner.representation.diagrams.api.ICamelDiagramsService;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
@@ -23,10 +22,9 @@ import org.modelio.vcore.smkernel.mapi.MClass;
 /**
  * @author kchaabouni
  */
-@objid ("fbf55963-fb87-4726-8043-bd7949eceb3d")
-public class CamelDiagramsServiceImpl implements ICamelDiagramsService {
-    @objid ("367bc5d0-fdaf-4649-9bea-57b4d4f9a536")
-    @Override
+@objid ("e58f6418-b695-42f8-b291-ae99e48e4697")
+public class CamelDiagramsService {
+    @objid ("7e1e057f-9898-42f0-bc54-49827e4709e1")
     public void applyCamelStyle(IDiagramDG diagramDG) {
         IDiagramService diagramService = CamelDesignerModule.getInstance().getModuleContext().getModelioServices().getDiagramService();
         for (IStyleHandle camelStyle : diagramService.listStyles()){
@@ -37,8 +35,7 @@ public class CamelDiagramsServiceImpl implements ICamelDiagramsService {
         }
     }
 
-    @objid ("e20afaf7-5aa5-4910-8de8-e6f027d93d29")
-    @Override
+    @objid ("92bf06a7-3a1c-4474-8776-c6b12a72941e")
     public void unmaskModelElement(ModelElement modelElement, IModuleContext moduleContext, ClassDiagram deploymentModelDiagram, Rectangle bounds) {
         IDiagramService diagramService = moduleContext.getModelioServices().getDiagramService();
         try(  IDiagramHandle diagramHandle = diagramService.getDiagramHandle(deploymentModelDiagram);){
@@ -57,8 +54,7 @@ public class CamelDiagramsServiceImpl implements ICamelDiagramsService {
         }
     }
 
-    @objid ("a4899d91-533d-4c79-96b9-854fd40bc0cf")
-    @Override
+    @objid ("5dda0cc8-afc9-41dc-a054-bb80d6e082f8")
     public ClassDiagram createSubModelDiagram(Class subModel, String diagramStereotype, String deploymentModelDiagramName) {
         IModuleContext moduleContext = CamelDesignerModule.getInstance().getModuleContext();
         IModelingSession modelingSession = moduleContext.getModelingSession();

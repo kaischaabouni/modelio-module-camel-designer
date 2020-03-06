@@ -4,8 +4,7 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import fr.softeam.cameldesigner.api.CamelDesignerStereotypes;
 import fr.softeam.cameldesigner.api.ICamelDesignerPeerModule;
-import fr.softeam.cameldesigner.representation.diagrams.api.ICamelDiagramsService;
-import fr.softeam.cameldesigner.representation.diagrams.impl.CamelDiagramsServiceImpl;
+import fr.softeam.cameldesigner.representation.diagrams.CamelDiagramsService;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
@@ -33,7 +32,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("334a8866-11b6-455d-9c4f-9359ee400879")
 public class CreateCamelModelCommand extends DefaultModuleCommandHandler {
     @objid ("27d3cbc5-273b-4761-8e86-925c79bd7b45")
-     ICamelDiagramsService camelDiagramService = new CamelDiagramsServiceImpl();
+     CamelDiagramsService camelDiagramService = new CamelDiagramsService();
 
     @objid ("abfb9318-43b7-4aa3-adc9-54a27a861a44")
     @Override

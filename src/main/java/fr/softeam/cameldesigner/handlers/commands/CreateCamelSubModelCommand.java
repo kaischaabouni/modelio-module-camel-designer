@@ -4,8 +4,7 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import fr.softeam.cameldesigner.api.CamelDesignerStereotypes;
 import fr.softeam.cameldesigner.api.ICamelDesignerPeerModule;
-import fr.softeam.cameldesigner.representation.diagrams.api.ICamelDiagramsService;
-import fr.softeam.cameldesigner.representation.diagrams.impl.CamelDiagramsServiceImpl;
+import fr.softeam.cameldesigner.representation.diagrams.CamelDiagramsService;
 import org.modelio.api.modelio.model.IModelingSession;
 import org.modelio.api.modelio.model.ITransaction;
 import org.modelio.api.module.IModule;
@@ -37,7 +36,7 @@ public abstract class CreateCamelSubModelCommand extends DefaultModuleCommandHan
      String subModelDiagramStereotype;
 
     @objid ("683d428a-eecf-4b9f-b0f1-d2fe7c24d71c")
-     ICamelDiagramsService camelDiagramService = new CamelDiagramsServiceImpl();
+     CamelDiagramsService camelDiagramService = new CamelDiagramsService();
 
     @objid ("59a802ab-d48e-4414-a661-5492011b3c67")
     public CreateCamelSubModelCommand(String subModelName, String subModelStereotype, String subModelDiagramName, String subModelDiagramStereotype) {
@@ -91,12 +90,7 @@ public abstract class CreateCamelSubModelCommand extends DefaultModuleCommandHan
                     
                     
                     ClassDiagram camelModelDiagram = (ClassDiagram) diagram;
-        //                    for(ModelTree ownedElement: camelModel.getOwnedElement()) {
-        //                        if(ownedElement instanceof Class && ownedElement.isStereotyped(ICamelDesignerPeerModule.MODULE_NAME, CamelDesignerStereotypes.SUB_MODEL)) {
-        //                            this.camelDiagramService.unmaskModelElement(ownedElement, moduleContext, camelModelDiagram, null);
-        //        
-        //                        }
-        //                    }
+        
                     this.camelDiagramService.unmaskModelElement(subModel, moduleContext, camelModelDiagram, null);
                     this.camelDiagramService.unmaskModelElement(propertyDependency, moduleContext, camelModelDiagram, null);
                     
@@ -110,7 +104,6 @@ public abstract class CreateCamelSubModelCommand extends DefaultModuleCommandHan
                     }
                 }
         
-        //                this.camelDiagramService.unmaskModelElement(subModel, moduleContext, deploymentModelDiagram, bounds);
         
                 subModel.setOwner(camelModel);
                 

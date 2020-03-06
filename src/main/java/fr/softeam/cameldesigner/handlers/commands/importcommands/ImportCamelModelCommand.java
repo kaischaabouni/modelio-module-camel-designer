@@ -1,4 +1,4 @@
-package fr.softeam.cameldesigner.handlers.commands;
+package fr.softeam.cameldesigner.handlers.commands.importcommands;
 
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
