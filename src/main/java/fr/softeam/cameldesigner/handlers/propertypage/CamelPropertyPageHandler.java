@@ -2,9 +2,12 @@ package fr.softeam.cameldesigner.handlers.propertypage;
 
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import fr.softeam.cameldesigner.api.CamelDesignerStereotypes;
+import fr.softeam.cameldesigner.api.ICamelDesignerPeerModule;
 import org.modelio.api.module.IModule;
 import org.modelio.api.module.propertiesPage.AbstractModulePropertyPage;
 import org.modelio.api.module.propertiesPage.IModulePropertyTable;
+import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.TaggedValue;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -26,11 +29,17 @@ public class CamelPropertyPageHandler extends AbstractModulePropertyPage {
         
             ModelElement element = ((ModelElement) elements.get(0));
         
+            // tags
             for (TaggedValue tag : element.getTag()) {
                 table.addProperty(tag.getDefinition().getName(), tag.getActual().get(0).getValue());
-        
             }
         
+            // properties
+            for (Dependency dependency : element.getDependsOnDependency()) {
+                if(dependency.isStereotyped(ICamelDesignerPeerModule.MODULE_NAME, CamelDesignerStereotypes.PROPERTY_DEPENDENCY)) {
+                    table.addProperty(dependency.getName(), dependency.getDependsOn().getName());
+                }
+            }
         
         }
     }

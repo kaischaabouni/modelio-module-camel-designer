@@ -1281,7 +1281,7 @@
             </Tool>
             <Tool id="DeploymentTypeModel" label="%tool.DeploymentTypeModel.label" tooltip="%tool.DeploymentTypeModel.tooltip" image="res/icon/gui/DeploymentTypeModel_24.png">
                 <Scope-source metaclass="Standard.Class" stereotype="CamelDesigner#CamelModel"/>
-                <Handler class="Box">
+                <Handler class="fr.softeam.cameldesigner.handlers.tools.coretools.CreateDeploymentTypeModel">
                     <HParameter name="stereotype" value="CamelDesigner#DeploymentTypeModel"/>
                     <HParameter name="metaclass" value="Standard.Class"/>
                     <HParameter name="name" value="DeploymentTypeModel"/>
@@ -1297,7 +1297,7 @@
             </Tool>
             <Tool id="RequirementModel" label="%tool.RequirementModel.label" tooltip="%tool.RequirementModel.tooltip" image="res/icon/gui/requirementModel_24.png">
                 <Scope-source metaclass="Standard.Class" stereotype="CamelDesigner#RequirementModel"/>
-                <Handler class="Box">
+                <Handler class="fr.softeam.cameldesigner.handlers.tools.coretools.CreateRequirementModel">
                     <HParameter name="stereotype" value="CamelDesigner#RequirementModel"/>
                     <HParameter name="metaclass" value="Standard.Class"/>
                     <HParameter name="name" value="RequirementModel"/>
@@ -1305,7 +1305,7 @@
             </Tool>
             <Tool id="MetricTypeModel" label="%tool.MetricTypeModel.label" tooltip="%tool.MetricTypeModel.tooltip" image="res/icon/gui/metricModel_24.png">
                 <Scope-source metaclass="Standard.Class" stereotype="CamelDesigner#MetricTypeModel"/>
-                <Handler class="Box">
+                <Handler class="fr.softeam.cameldesigner.handlers.tools.coretools.CreateMetricTypeModel">
                     <HParameter name="stereotype" value="CamelDesigner#MetricTypeModel"/>
                     <HParameter name="metaclass" value="Standard.Class"/>
                     <HParameter name="name" value="MetricTypeModel"/>
@@ -1409,7 +1409,7 @@
             </Tool>
             <Tool id="RequirementSet" label="%tool.RequirementSet.label" tooltip="%tool.RequirementSet.tooltip" image="res/icon/gui/RequirementSet_24.png">
                 <Scope-source metaclass="Standard.Class" stereotype="CamelDesigner#RequirementSet"/>
-                <Handler class="Box">
+                <Handler class="fr.softeam.cameldesigner.handlers.tools.deploymenttools.CreateRequirementSet">
                     <HParameter name="stereotype" value="CamelDesigner#RequirementSet"/>
                     <HParameter name="metaclass" value="Standard.Class"/>
                     <HParameter name="name" value="RequirementSet"/>
@@ -1417,7 +1417,7 @@
             </Tool>
             <Tool id="ScriptConfiguration" label="%tool.ScriptConfiguration.label" tooltip="%tool.ScriptConfiguration.tooltip" image="res/icon/gui/ScriptConfiguration_24.png">
                 <Scope-source metaclass="Standard.Class" stereotype="CamelDesigner#ScriptConfiguration"/>
-                <Handler class="Box">
+                <Handler class="fr.softeam.cameldesigner.handlers.tools.deploymenttools.CreateScriptConfiguration">
                     <HParameter name="stereotype" value="CamelDesigner#ScriptConfiguration"/>
                     <HParameter name="metaclass" value="Standard.Class"/>
                     <HParameter name="name" value="ScriptConfiguration"/>
@@ -1425,10 +1425,19 @@
             </Tool>
             <Tool id="RequiredHost" label="%tool.RequiredHost.label" tooltip="%tool.RequiredHost.tooltip" image="res/icon/gui/deploymentModelEmpty_24.png">
                 <Scope-source metaclass="Standard.Class" stereotype="CamelDesigner#RequiredHost"/>
-                <Handler class="Box">
+                <Handler class="fr.softeam.cameldesigner.handlers.tools.deploymenttools.CreateRequiredHost">
                     <HParameter name="stereotype" value="CamelDesigner#RequiredHost"/>
                     <HParameter name="metaclass" value="Standard.Class"/>
                     <HParameter name="name" value="RequiredHost"/>
+                </Handler>
+            </Tool>
+            <Tool id="PropertyDependency" label="%tool.PropertyDependency.label" tooltip="%tool.PropertyDependency.tooltip" image="res/icon/gui/propertyDependency2_48.ICON.png">
+                <Scope-source metaclass="Standard.Class" stereotype=""/>
+                <Scope-target metaclass="Standard.Class" stereotype=""/>
+                <Handler class="Link">
+                    <HParameter name="stereotype" value="CamelDesigner#PropertyDependency"/>
+                    <HParameter name="metaclass" value="Infrastructure.Dependency"/>
+                    <HParameter name="name" value="PropertyDependency"/>
                 </Handler>
             </Tool>
         </Tools>
@@ -1475,6 +1484,7 @@
                     <ToolRef refid="CREATE_RELATED_DIAGRAM_LINK" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_NOTE" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_TRACEABILITY" group="%group.Common.label"/>
+                    <ToolRef refid="PropertyDependency" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_DRAWING_LINE" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_RECTANGLE" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_TEXT" group="%group.Free_Drawing.label"/>
@@ -1495,6 +1505,7 @@
                     <ToolRef refid="CREATE_EXTERNDOCUMENT" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_NOTE" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_RELATED_DIAGRAM_LINK" group="%group.Common.label"/>
+                    <ToolRef refid="PropertyDependency" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_DRAWING_TEXT" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_LINE" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_RECTANGLE" group="%group.Free_Drawing.label"/>
@@ -1511,6 +1522,7 @@
                     <ToolRef refid="CREATE_EXTERNDOCUMENT" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_TRACEABILITY" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_RELATED_DIAGRAM_LINK" group="%group.Common.label"/>
+                    <ToolRef refid="PropertyDependency" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_DRAWING_TEXT" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_RECTANGLE" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_ELLIPSE" group="%group.Free_Drawing.label"/>
@@ -1527,6 +1539,7 @@
                     <ToolRef refid="CREATE_NOTE" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_EXTERNDOCUMENT" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_RELATED_DIAGRAM_LINK" group="%group.Common.label"/>
+                    <ToolRef refid="PropertyDependency" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_DRAWING_LINE" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_TEXT" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_ELLIPSE" group="%group.Free_Drawing.label"/>
@@ -1543,6 +1556,7 @@
                     <ToolRef refid="CREATE_EXTERNDOCUMENT" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_TRACEABILITY" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_NOTE" group="%group.Common.label"/>
+                    <ToolRef refid="PropertyDependency" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_DRAWING_RECTANGLE" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_LINE" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_ELLIPSE" group="%group.Free_Drawing.label"/>
@@ -1559,6 +1573,7 @@
                     <ToolRef refid="CREATE_TRACEABILITY" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_RELATED_DIAGRAM_LINK" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_EXTERNDOCUMENT" group="%group.Common.label"/>
+                    <ToolRef refid="PropertyDependency" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_DRAWING_RECTANGLE" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_TEXT" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_ELLIPSE" group="%group.Free_Drawing.label"/>
@@ -1575,6 +1590,7 @@
                     <ToolRef refid="CREATE_NOTE" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_RELATED_DIAGRAM_LINK" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_TRACEABILITY" group="%group.Common.label"/>
+                    <ToolRef refid="PropertyDependency" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_DRAWING_LINE" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_TEXT" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_ELLIPSE" group="%group.Free_Drawing.label"/>
@@ -1591,6 +1607,7 @@
                     <ToolRef refid="CREATE_NOTE" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_TRACEABILITY" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_RELATED_DIAGRAM_LINK" group="%group.Common.label"/>
+                    <ToolRef refid="PropertyDependency" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_DRAWING_ELLIPSE" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_TEXT" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_RECTANGLE" group="%group.Free_Drawing.label"/>
@@ -1607,6 +1624,7 @@
                     <ToolRef refid="CREATE_RELATED_DIAGRAM_LINK" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_EXTERNDOCUMENT" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_TRACEABILITY" group="%group.Common.label"/>
+                    <ToolRef refid="PropertyDependency" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_DRAWING_RECTANGLE" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_ELLIPSE" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_LINE" group="%group.Free_Drawing.label"/>
@@ -1623,6 +1641,7 @@
                     <ToolRef refid="CREATE_NOTE" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_RELATED_DIAGRAM_LINK" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_TRACEABILITY" group="%group.Common.label"/>
+                    <ToolRef refid="PropertyDependency" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_DRAWING_RECTANGLE" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_ELLIPSE" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_TEXT" group="%group.Free_Drawing.label"/>
@@ -1639,6 +1658,7 @@
                     <ToolRef refid="CREATE_RELATED_DIAGRAM_LINK" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_EXTERNDOCUMENT" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_NOTE" group="%group.Common.label"/>
+                    <ToolRef refid="PropertyDependency" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_DRAWING_TEXT" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_ELLIPSE" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_LINE" group="%group.Free_Drawing.label"/>
@@ -1655,6 +1675,7 @@
                     <ToolRef refid="CREATE_TRACEABILITY" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_EXTERNDOCUMENT" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_NOTE" group="%group.Common.label"/>
+                    <ToolRef refid="PropertyDependency" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_DRAWING_LINE" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_ELLIPSE" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_TEXT" group="%group.Free_Drawing.label"/>
@@ -1671,6 +1692,7 @@
                     <ToolRef refid="CREATE_TRACEABILITY" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_RELATED_DIAGRAM_LINK" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_EXTERNDOCUMENT" group="%group.Common.label"/>
+                    <ToolRef refid="PropertyDependency" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_DRAWING_ELLIPSE" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_RECTANGLE" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_LINE" group="%group.Free_Drawing.label"/>
@@ -1687,6 +1709,7 @@
                     <ToolRef refid="CREATE_RELATED_DIAGRAM_LINK" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_EXTERNDOCUMENT" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_TRACEABILITY" group="%group.Common.label"/>
+                    <ToolRef refid="PropertyDependency" group="%group.Common.label"/>
                     <ToolRef refid="CREATE_DRAWING_ELLIPSE" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_TEXT" group="%group.Free_Drawing.label"/>
                     <ToolRef refid="CREATE_DRAWING_RECTANGLE" group="%group.Free_Drawing.label"/>
