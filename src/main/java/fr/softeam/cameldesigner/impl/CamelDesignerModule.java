@@ -11,14 +11,14 @@ public class CamelDesignerModule extends AbstractJavaModule {
     @objid ("5d2e001f-95c5-404a-92b5-3da099f4d6ba")
     private static final String MODULE_IMAGE = "/res/icon/module.png";
 
-    @objid ("cf019cd7-88f0-48df-9a42-ee4bf89ad3d4")
-    private CamelDesignerPeerModule peerModule = null;
-
     @objid ("5901a13c-a070-4d08-8c32-9fb2a639efc1")
     private CamelDesignerLifeCycleHandler lifeCycleHandler = null;
 
     @objid ("144f586a-61c7-4448-8376-067b9181ce36")
     private static CamelDesignerModule instance;
+
+    @objid ("cf019cd7-88f0-48df-9a42-ee4bf89ad3d4")
+    private CamelDesignerPeerModule peerModule = null;
 
     @objid ("58ad7d4c-51e4-476c-b15e-443b4b46efb7")
     public CamelDesignerModule(final IModuleContext moduleContext) {
